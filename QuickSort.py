@@ -1,23 +1,26 @@
-'''
-    QuickSort:
-    Given an input array, perform a quicksort on it and return the sorted array
+"""
+Quick Sort
 
-    Best Time:  O(NlogN), where N are the number of nodes in the list
-    Worst Time: O(N^2)
-    Space: O(NlogN) due to the recursive call stack 
+Given an input array, perform quick sort and return the sorted array.
 
-  
-'''
+Best Time: O(N log N)
+Worst Time: O(N^2)
+Space: O(log N) average recursive stack
+"""
+
 def quickSort(array):
     quickSortHelper(array, 0, len(array) - 1)
     return array
 
+
 def quickSortHelper(array, start, end):
-    if start > end: return
+    if start >= end:
+        return
+
     pivot = start
     left = start + 1
     right = end
-    
+
     while left <= right:
         if array[left] > array[pivot] and array[right] < array[pivot]:
             swap(array, left, right)
@@ -25,9 +28,10 @@ def quickSortHelper(array, start, end):
             left += 1
         if array[right] >= array[pivot]:
             right -= 1
-    swap(array, right, pivot)
 
-    leftSubArrayIsSmaller = ((right - 1) - left) < (end - (right + 1))
+    swap(array, pivot, right)
+
+    leftSubArrayIsSmaller = (right - 1 - start) < (end - (right + 1))
 
     if leftSubArrayIsSmaller:
         quickSortHelper(array, start, right - 1)
@@ -36,7 +40,10 @@ def quickSortHelper(array, start, end):
         quickSortHelper(array, right + 1, end)
         quickSortHelper(array, start, right - 1)
 
+
 def swap(array, left, right):
     array[left], array[right] = array[right], array[left]
 
-print(quickSort([9,8,7,6,5,4,3,2,1,0,-1,-2]))
+
+if __name__ == "__main__":
+    print(quickSort([9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2]))
