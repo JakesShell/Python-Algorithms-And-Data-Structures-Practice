@@ -200,3 +200,12 @@ This project reflects key cloud support responsibilities:
 This project is designed to represent an entry-level cloud application performance investigation and optimization workflow.
 
 It shows the ability to identify slow processing behavior, measure execution time, apply data structure improvements, and communicate the performance impact clearly.
+
+---
+
+## Dashboard Preview
+
+The screenshot below shows the performance incident simulation running in the terminal, including baseline timing, optimized timing, improvement percentage, resolution, and operational outcome.
+
+![Performance Incident Dashboard](performance-incident-dashboard.png)
+
